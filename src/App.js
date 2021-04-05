@@ -43,9 +43,9 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
+            atEnter={{ opacity: 0, transition: top, top: 200 }}
             atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}
+            atActive={{ opacity: 1, transition: top, top: 0 }}
             className={styles.switchWrapper}
           >
             <Route exact path='/' component={Home} />
