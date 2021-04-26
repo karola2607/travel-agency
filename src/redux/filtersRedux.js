@@ -40,27 +40,12 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_TAG:
       return {
         ...statePart,
-        tags: statePart.tags = statePart.tags.filter((tag) => tag!==action.payload),
+        tags: statePart.tags.filter((tag) => tag!==action.payload),
       };
     case FILTER_BY_DURATION:
       return {
         ...statePart,
-        duration: {from: 
-            function(){
-              if (action.payload[0] == 'from'){
-                return action.payload[1];
-              } else {
-                return statePart.duration.from;
-              }
-            }, to: 
-            function(){
-              if (action.payload[0] == 'to'){
-                return action.payload[1];
-              } else {
-                return statePart.duration.to;
-              }
-            },
-        },
+        duration: {...statePart.duration, [action.payload[0]]: action.payload[1]},
       };
     default:
       return statePart;
