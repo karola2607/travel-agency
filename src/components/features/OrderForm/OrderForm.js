@@ -5,9 +5,11 @@ import OrderSummary from '../OrderSummary/OrderSummary';
 import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption';
 
-const OrderForm = props => (
+const OrderForm = (props) => (
   <Row>
-    {pricing.map(option => <Col md={4} key={option.id}><OrderOption name={option.name}>{console.log(option)}{option}</OrderOption></Col> )}
+    {pricing.map(option => {
+      return(<Col md={4} key={option.id}><OrderOption name={option.name} type={option.type}/></Col> );}
+    )}
     <Col xs={12}>
       <OrderSummary cost={props.tripCost} options={props.options}/>
     </Col>
