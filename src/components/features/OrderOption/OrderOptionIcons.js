@@ -14,8 +14,7 @@ const OrderOptionIcons = ({values, required, setOptionValue}) => (
     )}
     {values.map(value => (
       <div 
-        className={styles.icon} 
-        activeClassName={styles.isActive} 
+        className={styles.icon}
         key={value.id} 
         onClick={value => setOptionValue(value.id)}
       >
@@ -31,7 +30,7 @@ const OrderOptionIcons = ({values, required, setOptionValue}) => (
 
 
 OrderOptionIcons.propTypes = {
-  values: PropTypes.object,
+  values: PropTypes.array,
   required: PropTypes.node,
   setOptionValue: PropTypes.func,
 };

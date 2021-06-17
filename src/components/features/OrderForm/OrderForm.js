@@ -15,6 +15,7 @@ const OrderForm = (props, {setOrderOption}) => (
             type={option.type} 
             currentValue={option.id} 
             setOrderOption={setOrderOption}
+            values={option.values}
           />
         </Col> 
       );}
