@@ -18,7 +18,7 @@ const OrderOptionDropdown = ({values, required, currentValue, setOptionValue}) =
         value={value.id}
       >
         {value.name}
-        ({formatPrice(value.price)}  
+        ({formatPrice(value.price)})  
       </option>
     ))}
   </select>

@@ -29,7 +29,8 @@ const OrderOptionCheckboxes = ({values, setOptionValue, currentValue}) => (
         >
         </input>
         {value.name}
-        {formatPrice(value.price)}
+        ({formatPrice(value.price)})
+        {console.log(value.id)}
       </label>
     ))}
   </div>

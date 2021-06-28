@@ -9,20 +9,22 @@ const OrderOptionIcons = ({values, required, setOptionValue}) => (
   <div 
     className={styles.icon}
   >
-    {required ? '' : (
-      <i className="fas fa-times-circle">none</i>
-    )}
+    <div>
+      {required ? '' : (
+        <i className="fas fa-times-circle">none</i>
+      )}
+    </div>
     {values.map(value => (
       <div 
         className={styles.icon}
         key={value.id} 
-        onClick={value => setOptionValue(value.id)}
+        onClick={() => setOptionValue(value.id)}
       >
         <Icon 
-          name={value.name}
+          name={value.icon}
         />
         {value.name}
-        {formatPrice(value.price)}
+        ({formatPrice(value.price)})
       </div>
     ))}
   </div>
