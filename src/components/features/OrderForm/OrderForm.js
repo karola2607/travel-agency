@@ -1,33 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Row, Col} from 'react-flexbox-grid';
-import OrderSummary from '../OrderSummary/OrderSummary';
-import pricing from '../../../data/pricing.json';
-import OrderOption from '../OrderOption/OrderOption';
+import React from "react";
+import PropTypes from "prop-types";
+import { Row, Col } from "react-flexbox-grid";
+import OrderSummary from "../OrderSummary/OrderSummary";
+import pricing from "../../../data/pricing.json";
+import OrderOption from "../OrderOption/OrderOption";
 
-const OrderForm = props => (
+const OrderForm = (props) => (
   <Row>
-    {pricing.map(option => {
-      return(
+    {pricing.map((option) => {
+      return (
         <Col md={4} key={option.id}>
-          <OrderOption 
-            name={option.name} 
-            type={option.type} 
+          <OrderOption
+            name={option.name}
+            type={option.type}
             values={option.values}
-            currentValue={option.id} 
+            currentValue={option.id}
             setOrderOption={props.setOrderOption}
+            limits={option.limits}
           />
-        </Col> 
-        
-      );}
-    )}
+        </Col>
+      );
+    })}
     <Col xs={12}>
-      <OrderSummary 
-        cost={props.tripCost} 
-        options={props.options}
-      />
+      <OrderSummary cost={props.tripCost} options={props.options} />
     </Col>
-    
   </Row>
 );
 
@@ -40,6 +36,7 @@ OrderForm.propTypes = {
   currentValue: PropTypes.string,
   setOrderOption: PropTypes.func,
   values: PropTypes.array,
+  limits: PropTypes.object,
 };
 
 export default OrderForm;
